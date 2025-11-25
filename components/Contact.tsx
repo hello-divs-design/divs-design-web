@@ -1,7 +1,12 @@
 import React from 'react';
 import { Mail, MessageSquare } from 'lucide-react';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  includeMobileUpgrade: boolean;
+  includeSeoPackage: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ includeMobileUpgrade, includeSeoPackage }) => {
   return (
     <section id="contact" className="py-24 bg-slate-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -34,8 +39,14 @@ const Contact: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-slate-400 mb-2">Interested In</label>
               <select className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-lg text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
-                <option>Creator App Build ($15k)</option>
-                <option>Business Website ($3k)</option>
+                <option>
+                  Creator App Build {includeMobileUpgrade ? '($25k)' : '($15k)'}
+                  {includeMobileUpgrade && ' - Includes Mobile App + Advanced AI'}
+                </option>
+                <option>
+                  Business Website {includeSeoPackage ? '($3k + $800/mo)' : '($3k + $300/mo)'}
+                  {includeSeoPackage && ' - Includes Advanced SEO'}
+                </option>
                 <option>Enterprise Custom (Quote)</option>
               </select>
             </div>
@@ -59,9 +70,9 @@ const Contact: React.FC = () => {
         </div>
         
         <div className="mt-12 flex justify-center gap-8 text-slate-500">
-           <a href="#" className="hover:text-white transition-colors">Twitter / X</a>
-           <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-           <a href="#" className="hover:text-white transition-colors">YouTube</a>
+           <a href="https://x.com/jaypetersdotdev" className="hover:text-white transition-colors">Twitter / X</a>
+           <a href="https://www.linkedin.com/in/petersjt/" className="hover:text-white transition-colors">LinkedIn</a>
+           <a href="https://www.youtube.com/@jaypetersdotdev" className="hover:text-white transition-colors">YouTube</a>
         </div>
       </div>
     </section>

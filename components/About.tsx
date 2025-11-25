@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Briefcase, Code } from 'lucide-react';
+import profileImage from '../assets/profile-square.jpg';
 
 const About: React.FC = () => {
   return (
@@ -8,14 +9,18 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-bold text-white mb-6">
-              13 Years of Engineering Excellence
+              Engineering for Creators & Founders
             </h2>
             <div className="space-y-6 text-slate-400 leading-relaxed">
               <p>
-                I don't just "make websites." I architect digital solutions. With over a decade of experience in the field, I bring enterprise-level discipline to creator economies and small businesses.
+                I’m Jay, a YouTuber and full‑stack engineer helping creators and founders launch real products. 
+                After 13 years building enterprise systems at Salesforce and leading engineering teams, I now focus on 
+                bringing creator‑economy speed to high‑quality software development.
               </p>
               <p>
-                My background spans from massive Salesforce implementations to custom microservice architectures. I've pivoted to focusing on <strong className="text-brand-400">divs.design</strong> to bring that same level of robustness to creators who need their own platforms, owned data, and automated systems.
+                Whether you're building a SaaS, website, or custom mobile app, I bring real engineering discipline, 
+                transparent communication, and fast iteration. <strong className="text-brand-400">divs.design</strong> is where I build 
+                the tools, platforms, and systems creators and founders need to launch and scale their businesses.
               </p>
             </div>
             
@@ -23,26 +28,25 @@ const About: React.FC = () => {
               <div className="p-4 bg-slate-900 rounded-lg border border-slate-800">
                 <Code className="text-brand-400 mb-2" size={24} />
                 <div className="font-bold text-white text-lg">Full Stack</div>
-                <div className="text-xs text-slate-500">React, Node, Python</div>
+                <div className="text-xs text-slate-500">SaaS, Automations, APIs</div>
               </div>
               <div className="p-4 bg-slate-900 rounded-lg border border-slate-800">
                 <Briefcase className="text-brand-400 mb-2" size={24} />
                 <div className="font-bold text-white text-lg">Enterprise</div>
-                <div className="text-xs text-slate-500">Salesforce, AWS</div>
+                <div className="text-xs text-slate-500">Systems, Architecture, Scaling</div>
               </div>
               <div className="p-4 bg-slate-900 rounded-lg border border-slate-800">
                 <Award className="text-brand-400 mb-2" size={24} />
                 <div className="font-bold text-white text-lg">Native</div>
-                <div className="text-xs text-slate-500">iOS & Android</div>
+                <div className="text-xs text-slate-500">Mobile Apps, Creators</div>
               </div>
             </div>
           </div>
 
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden border-2 border-slate-800 relative z-10 bg-slate-900">
-                 {/* Placeholder for Jay's Portrait */}
                  <img 
-                    src="https://picsum.photos/800/800?grayscale" 
+                    src={profileImage} 
                     alt="Jay - Founder" 
                     className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                  />
