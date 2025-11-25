@@ -1,6 +1,14 @@
 import React from 'react';
 import { ExternalLink, Smartphone, Globe, Apple, PlayCircle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
+// Import images as modules so Vite processes them correctly
+import waveExample1 from '../assets/wave-example-1.png';
+import waveExample3 from '../assets/wave-example-3.png';
+import waveExample4 from '../assets/wave-example-4.png';
+import sacnpaExample from '../assets/sacnpa-example.png';
+import northyardExample from '../assets/northyard-example.png';
+import lisapetersbooks from '../assets/lisapetersbooks.png';
+
 // Featured mobile app - hero case study
 const featuredApp = {
   title: 'The Wave Nightlife',
@@ -16,9 +24,9 @@ const featuredApp = {
   ],
   // Staggered screenshots for collage effect
   screens: {
-    main: '/assets/wave-example-1.png', // Explore/discover screen
-    secondary: '/assets/wave-example-3.png', // Booking/reservation
-    tertiary: '/assets/wave-example-4.png' // Profile/feed
+    main: waveExample1, // Explore/discover screen
+    secondary: waveExample3, // Booking/reservation
+    tertiary: waveExample4 // Profile/feed
   },
   link: 'https://www.thewavenightlife.com/',
   appStore: 'https://apps.apple.com/us/app/the-wave-nightlife/id6746767592',
@@ -32,7 +40,7 @@ const websites = [
     type: 'Association',
     description: 'Membership portal, events, and blog for Sacramento Nurse Practitioners.',
     stack: 'Webflow · CMS · Membership',
-    imageUrl: '/assets/sacnpa-example.png',
+    imageUrl: sacnpaExample,
     link: 'https://www.sacnpa.com/'
   },
   {
@@ -40,7 +48,7 @@ const websites = [
     type: 'Corporate',
     description: 'Clean, conversion-focused site for construction & logistics.',
     stack: 'Webflow · CMS · SEO',
-    imageUrl: '/assets/northyard-example.png',
+    imageUrl: northyardExample,
     link: 'https://www.thenorthyardllc.com/'
   },
   {
@@ -48,7 +56,7 @@ const websites = [
     type: 'Author Portfolio',
     description: 'Whimsical author hub with book collections and e-commerce.',
     stack: 'Webflow · E-commerce · CMS',
-    imageUrl: '/assets/lisapetersbooks.png',
+    imageUrl: lisapetersbooks,
     link: 'https://www.lisapetersbooks.com/'
   }
 ];
