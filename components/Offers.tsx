@@ -59,6 +59,8 @@ interface OffersProps {
   setIncludeMobileUpgrade: (value: boolean) => void;
   includeSeoPackage: boolean;
   setIncludeSeoPackage: (value: boolean) => void;
+  selectedPackage: string | null;
+  setSelectedPackage: (value: string | null) => void;
 }
 
 const Offers: React.FC<OffersProps> = ({
@@ -66,6 +68,8 @@ const Offers: React.FC<OffersProps> = ({
   setIncludeMobileUpgrade,
   includeSeoPackage,
   setIncludeSeoPackage,
+  selectedPackage,
+  setSelectedPackage,
 }) => {
 
   return (
@@ -199,6 +203,7 @@ const Offers: React.FC<OffersProps> = ({
 
               <a 
                 href="#contact"
+                onClick={() => setSelectedPackage(tier.name)}
                 className={`block w-full py-4 rounded-lg font-bold text-center transition-all ${
                   tier.popular 
                     ? 'bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/25' 

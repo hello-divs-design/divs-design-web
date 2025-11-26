@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Code2 } from 'lucide-react';
 import { NavItem } from '../types';
 
@@ -10,6 +11,9 @@ const navItems: NavItem[] = [
 ];
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -21,6 +25,13 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (hash: string, e: React.MouseEvent) => {
+    if (!isHomePage) {
+      e.preventDefault();
+      navigate(`/${hash}`);
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -28,32 +39,53 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div className="flex items-center gap-2 font-bold text-xl tracking-tighter">
+        <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter">
           <div className="p-2 bg-brand-600 rounded-lg text-white">
             <Code2 size={20} />
           </div>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
             divs.design
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 items-center">
           {navItems.map((item) => (
-            <a 
-              key={item.label} 
-              href={item.href}
-              className="text-slate-400 hover:text-brand-400 transition-colors text-sm font-medium"
-            >
-              {item.label}
-            </a>
+            isHomePage ? (
+              <a 
+                key={item.label} 
+                href={item.href}
+                className="text-slate-400 hover:text-brand-400 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <a
+                key={item.label}
+                href={`/${item.href}`}
+                onClick={(e) => handleNavClick(item.href, e)}
+                className="text-slate-400 hover:text-brand-400 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </a>
+            )
           ))}
-          <a 
-            href="#offers"
-            className="px-5 py-2 bg-white text-slate-950 rounded-full font-semibold text-sm hover:bg-slate-200 transition-colors"
-          >
-            Start Project
-          </a>
+          {isHomePage ? (
+            <a 
+              href="#offers"
+              className="px-5 py-2 bg-white text-slate-950 rounded-full font-semibold text-sm hover:bg-slate-200 transition-colors"
+            >
+              Start Project
+            </a>
+          ) : (
+            <a
+              href="/#offers"
+              onClick={(e) => handleNavClick('#offers', e)}
+              className="px-5 py-2 bg-white text-slate-950 rounded-full font-semibold text-sm hover:bg-slate-200 transition-colors"
+            >
+              Start Project
+            </a>
+          )}
         </nav>
 
         {/* Mobile Toggle */}
@@ -70,22 +102,49 @@ const Header: React.FC = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900 border-b border-slate-800 p-4 shadow-xl">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
+              isHomePage ? (
+                <a 
+                  key={item.label}
+                  href={item.href}
+                  className="text-slate-300 hover:text-white block py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <a
+                  key={item.label}
+                  href={`/${item.href}`}
+                  onClick={(e) => {
+                    handleNavClick(item.href, e);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-slate-300 hover:text-white block py-2"
+                >
+                  {item.label}
+                </a>
+              )
+            ))}
+            {isHomePage ? (
               <a 
-                key={item.label}
-                href={item.href}
-                className="text-slate-300 hover:text-white block py-2"
+                href="#contact"
+                className="w-full text-center py-3 bg-brand-600 text-white rounded-lg font-bold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.label}
+                Let's Talk
               </a>
-            ))}
-            <a 
-              href="#contact"
-              className="w-full text-center py-3 bg-brand-600 text-white rounded-lg font-bold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Let's Talk
-            </a>
+            ) : (
+              <a
+                href="/#contact"
+                onClick={(e) => {
+                  handleNavClick('#contact', e);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full text-center py-3 bg-brand-600 text-white rounded-lg font-bold"
+              >
+                Let's Talk
+              </a>
+            )}
           </div>
         </div>
       )}
