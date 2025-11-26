@@ -38,8 +38,8 @@ const websites = [
   {
     title: 'SacNPA',
     type: 'Association',
-    description: 'Membership portal, events, and blog for Sacramento Nurse Practitioners.',
-    stack: 'Webflow · CMS · Membership',
+    description: 'Services, team members, reviews, and blog for Sacramento NeuroPsych Associates.',
+    stack: 'Webflow · CMS · SEO',
     imageUrl: sacnpaExample,
     link: 'https://www.sacnpa.com/'
   },
@@ -47,14 +47,14 @@ const websites = [
     title: 'The North Yard LLC',
     type: 'Corporate',
     description: 'Clean, conversion-focused site for construction & logistics.',
-    stack: 'Webflow · CMS · SEO',
+    stack: 'Webflow · CMS · Analytics',
     imageUrl: northyardExample,
     link: 'https://www.thenorthyardllc.com/'
   },
   {
     title: 'Lisa Peters Books',
     type: 'Author Portfolio',
-    description: 'Whimsical author hub with book collections and e-commerce.',
+    description: 'Children\'s author hub with book collections and e-commerce.',
     stack: 'Webflow · E-commerce · CMS',
     imageUrl: lisapetersbooks,
     link: 'https://www.lisapetersbooks.com/'
